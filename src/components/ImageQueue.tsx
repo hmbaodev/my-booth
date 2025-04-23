@@ -3,11 +3,22 @@ interface ImageQueueProps {
 }
 
 const ImageQueue = ({ images }: ImageQueueProps) => {
-  return <div className="flex flex-col h-full gap-3 items-center">
-    {images?.map(image => (
-      <img key={image} src={image} alt="" className="w-full rounded-md" />
-    ))}
-  </div>;
+  return (
+    <div className="flex h-full flex-col items-start justify-center gap-3">
+      {images.length === 0 ? (
+        <p>Images</p>
+      ) : (
+        images?.map((image) => (
+          <img
+            key={image}
+            src={image}
+            alt=""
+            className="w-[136px] rounded-md"
+          />
+        ))
+      )}
+    </div>
+  );
 };
 
 export default ImageQueue;

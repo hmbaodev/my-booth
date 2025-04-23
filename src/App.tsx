@@ -11,9 +11,11 @@ const App = () => {
   };
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center gap-4 bg-gray-200">
-      <WebCam onCapture={onCapture} />
-      <ImageQueue images={images} />
+    <div className="flex min-h-screen w-full items-center justify-center bg-gray-200">
+      <div className="flex gap-3 ">
+        <WebCam onCapture={onCapture} />
+        <ImageQueue images={images} />
+      </div>
     </div>
   );
 };
