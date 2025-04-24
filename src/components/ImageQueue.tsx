@@ -1,19 +1,23 @@
-interface ImageQueueProps {
-  images: string[];
-}
+import { useBoothProvider } from "../store/use-booth-provider";
 
-const ImageQueue = ({ images }: ImageQueueProps) => {
+const ImageQueue = () => {
+  const { images, isMirrored } = useBoothProvider();
+
   return (
-    <div className="flex h-full flex-col items-start justify-center gap-3">
+    <div className="flex max-h-[500px] gap-3 pr-2 max-md:flex-row max-md:overflow-x-auto md:flex-col md:overflow-y-auto">
       {images.length === 0 ? (
-        <p>Images</p>
+        <div className="flex w-full items-center justify-center rounded-md border-2 border-black p-2 max-md:h-[150px] md:aspect-[1/2] md:w-[150px]">
+          <p>Queued Images</p>
+        </div>
       ) : (
         images?.map((image) => (
           <img
             key={image}
             src={image}
             alt=""
-            className="w-[136px] rounded-md"
+            className={`w-[112px] rounded-md border-2 border-black md:w-[136px] ${
+              isMirrored ? "" : "scale-x-[-1]"
+            }`}
           />
         ))
       )}
