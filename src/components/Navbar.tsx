@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="flex h-20 w-full items-center justify-between border-b border-black px-6">
       <Link to={"/"} className="text-xl font-bold">
-        My Booth
+        The Boothy
       </Link>
       <div className="flex items-center justify-center gap-3">
         {!email ? (
@@ -35,7 +35,7 @@ const Navbar = () => {
               className="cursor-pointer rounded-full border-2 border-black bg-white px-4 py-2 uppercase hover:bg-blue-200"
               onClick={() => {
                 logout();
-                navigate("/home")
+                navigate("/home");
               }}
             >
               Đăng xuất
