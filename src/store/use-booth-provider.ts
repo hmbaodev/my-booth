@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-interface BoothProps {
+interface BoothProviderProps {
   images: string[];
   setImages: (imageUrls: string[]) => void;
   addImage: (imageUrl: string) => void;
@@ -14,11 +14,11 @@ interface BoothProps {
   setCaptureQueue: (value: number) => void;
 }
 
-export const useBoothProvider = create<BoothProps>((set) => ({
+export const useBoothProvider = create<BoothProviderProps>((set) => ({
   images: [],
   setImages: (imageUrls) => set({ images: imageUrls }),
   addImage: (imageUrl) =>
-    set((state) => ({ images: [imageUrl, ...state.images] })),
+    set((state) => ({ images: [...state.images, imageUrl] })),
   isMirrored: true,
   toggleMirror: () => set((state) => ({ isMirrored: !state.isMirrored })),
   videoRef: null,

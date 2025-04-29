@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ClockArrowDown, FlipHorizontal2, Camera } from "lucide-react";
+import { useNavigate } from "react-router";
 
 import { useBoothProvider } from "../store/use-booth-provider";
 import { useWebCam } from "../hooks/use-webcam";
@@ -7,6 +8,9 @@ import { useWebCam } from "../hooks/use-webcam";
 const WebCam = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [totalImages, setTotalImages] = useState(0);
+  const navigate = useNavigate();
+
   const {
     isMirrored,
     toggleMirror,
@@ -19,8 +23,15 @@ const WebCam = () => {
   const { videoRef, captureImage } = useWebCam();
 
   const handleCapture = () => {
-    const image = captureImage();
-    if (image) addImage(image);
+    if (totalImages < 4) {
+      const image = captureImage();
+      if (image) addImage(image);
+      setTotalImages((prev) => prev + 1);
+      // console.log(totalImages)
+    } else {
+      alert("Bạn chỉ được chụp tối đa 4 tấm!!!");
+      return;
+    }
   };
 
   // const startCountdown = () => {
@@ -64,6 +75,7 @@ const WebCam = () => {
         setShowMessage(true);
       } else {
         setCountdown(-1);
+        navigate("/export");
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -106,6 +118,7 @@ const WebCam = () => {
         <button
           className="flex size-10 cursor-pointer items-center justify-center rounded-full border-2 border-black p-2"
           onClick={handleCapture}
+          // disabled={}
         >
           <Camera className="size-full" />
         </button>
@@ -115,6 +128,15 @@ const WebCam = () => {
           disabled={countdown > 0}
         >
           <ClockArrowDown className="size-full" />
+        </button>
+        <button
+          className="flex h-10 cursor-pointer items-center justify-center rounded-full border-2 border-black px-4 py-2"
+          onClick={() => {
+            navigate("/export");
+          }}
+          disabled={totalImages + 1 <= 4}
+        >
+          Xuất Frame
         </button>
       </div>
     </div>

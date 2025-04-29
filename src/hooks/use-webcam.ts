@@ -35,7 +35,7 @@ export const useWebCam = () => {
   }, []);
 
   const captureImage = (): string | null => {
-    console.log(videoRef.current, "VIDEO")
+    // console.log(videoRef.current, "VIDEO")
 
     if (!videoRef.current) return null;
 
