@@ -1,9 +1,11 @@
 import { Link } from "react-router";
 import { Camera } from "lucide-react";
+import { useNavigate } from "react-router";
 
 import { useAuthStore } from "../store/use-auth-provider";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { email, logout } = useAuthStore();
 
   return (
@@ -31,7 +33,10 @@ const Navbar = () => {
           <>
             <button
               className="cursor-pointer rounded-full border-2 border-black bg-white px-4 py-2 uppercase hover:bg-blue-200"
-              onClick={logout}
+              onClick={() => {
+                logout();
+                navigate("/home")
+              }}
             >
               Đăng xuất
             </button>
