@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <div className="flex h-20 w-full items-center justify-between border-b border-black px-6">
       <Link to={"/"} className="text-xl font-bold">
-        The Boothy
+        Chekkicam
       </Link>
       <div className="flex items-center justify-center gap-3">
         {!email ? (

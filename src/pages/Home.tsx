@@ -3,12 +3,12 @@ import { Link } from "react-router";
 const Home = () => {
   return (
     <div className="flex items-center gap-10 px-4">
-      <div className="w-[40%] flex justify-end">
+      <div className="flex w-[40%] justify-end">
         <img src="/banner-2.webp" className="max-w-[400px]" alt="" />
       </div>
       <div className="flex w-[60%] flex-col items-start gap-3 pr-[80px]">
         <h1 className="text-[60px] font-bold uppercase">
-          Chào mừng bạn đến với The Boothy
+          Chào mừng bạn đến với Chekkicam
         </h1>
         <p className="text-md">
           Ứng dụng chụp ảnh Photobooth giúp bạn lưu giữ những khoảnh khắc vui
