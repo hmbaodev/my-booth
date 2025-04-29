@@ -35,7 +35,7 @@ const Navbar = () => {
               className="cursor-pointer rounded-full border-2 border-black bg-white px-4 py-2 uppercase hover:bg-blue-200"
               onClick={() => {
                 logout();
-                navigate("/home");
+                navigate("/");
               }}
             >
               Đăng xuất
