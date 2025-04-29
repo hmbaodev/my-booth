@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 
 import { useAuthStore } from "../store/use-auth-provider";
 
@@ -62,7 +62,12 @@ const Register = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-
+        <p>
+          Bạn đã có tài khoản?{" "}
+          <Link to="/login" className="text-gray-700 hover:underline">
+            Đăng nhập
+          </Link>
+        </p>
         <button
           type="submit"
           className="rounded bg-black py-2 text-white hover:opacity-90"

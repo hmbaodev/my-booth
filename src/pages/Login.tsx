@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 
 import { useAuthStore } from "../store/use-auth-provider";
 
@@ -46,7 +46,12 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
+        <p>
+          Bạn chưa có tài khoản?{" "}
+          <Link to="/register" className="text-gray-700 hover:underline">
+            Đăng ký
+          </Link>
+        </p>
         <button
           type="submit"
           className="mt-4 rounded bg-black py-2 text-white hover:opacity-90"
