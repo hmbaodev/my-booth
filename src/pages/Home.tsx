@@ -17,10 +17,10 @@ const Home = () => {
           yêu.
         </p>
         <Link
-          to="/register"
+          to="/booth"
           className="cursor-pointer rounded-full border-2 border-black bg-black px-4 py-2 text-white uppercase hover:bg-purple-100 hover:text-black"
         >
-          Đăng ký tài khoản để bắt đầu
+          Bắt đầu chụp
         </Link>
       </div>
     </div>

@@ -4,9 +4,9 @@ import RootLayout from "./layouts/RootLayout";
 import Booth from "./pages/Booth";
 import Home from "./pages/Home";
 import Export from "./pages/Export";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Actions from "./pages/Actions";
+// import Login from "./pages/Login";
+// import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -29,14 +29,14 @@ const router = createBrowserRouter([
         path: "/export",
         Component: Export
       },
-      {
-        path: "/login",
-        Component: Login
-      },
-      {
-        path: "register",
-        Component: Register
-      }
+      // {
+      //   path: "/login",
+      //   Component: Login
+      // },
+      // {
+      //   path: "register",
+      //   Component: Register
+      // }
     ]
   }
 ]);
