@@ -1,13 +1,13 @@
-import ImageQueue from "../components/ImageQueue";
-import WebCam from "../components/WebCam";
+import Options from "../components/Options";
+import Capture from "../components/Capture";
 
 const Booth = () => {
   return (
-    <div className="flex flex-col gap-4 md:flex-row">
-      <WebCam />
-      <ImageQueue />
+    <div className="w-full flex flex-col items-center">
+      <Options />
+      <Capture />
     </div>
   );
-}
+};
 
-export default Booth
+export default Booth;

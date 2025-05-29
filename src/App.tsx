@@ -1,56 +1,29 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { Routes, Route } from "react-router-dom";
 
-import RootLayout from "./layouts/RootLayout";
+import Navbar from "./components/Navbar";
 import Booth from "./pages/Booth";
-import Home from "./pages/Home";
 import Export from "./pages/Export";
-import Actions from "./pages/Actions";
-// import Login from "./pages/Login";
-// import Register from "./pages/Register";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    children: [
-      {
-        path: "/actions",
-        Component: Actions
-      },
-      {
-        path: "/",
-        Component: Home
-      },
-      {
-        path: "/booth",
-        Component: Booth
-      },
-      {
-        path: "/export",
-        Component: Export
-      },
-      // {
-      //   path: "/login",
-      //   Component: Login
-      // },
-      // {
-      //   path: "register",
-      //   Component: Register
-      // }
-    ]
-  }
-]);
+import { PhotoBoothProvider } from "./context/PhotoBoothContext";
 
 const App = () => {
-  // return (
-  //   <RouterProvider router={router}>
-  //     <div className="flex min-h-screen w-full items-center justify-center bg-gray-200 p-8">
-  //       <Booth />
-  //     </div>
-  //   </RouterProvider>
-  // );
-
-  return <RouterProvider router={router} />
+  return (
+    <PhotoBoothProvider>
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient( 109.6deg,  #ffc4f7 11.2%, rgba(188,204,251,1) 100.6%)",
+        }}
+      >
+        <Navbar />
+        <div className="flex min-h-[calc(100vh-80px)] pt-24">
+          <Routes>
+            <Route path="/" element={<Booth />} />
+            <Route path="/export" element={<Export />} />
+          </Routes>
+        </div>
+      </div>
+    </PhotoBoothProvider>
+  );
 };
 
 export default App;

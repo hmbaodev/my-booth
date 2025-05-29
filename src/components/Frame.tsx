@@ -1,13 +1,22 @@
-const Frame = () => {
+interface FrameProps {
+  images: string[];
+  stripStyle: string;
+  imageStyle: string;
+  frameColor?: string;
+  sticker?: string;
+}
+
+const Frame = ({ images, stripStyle, imageStyle, frameColor }: FrameProps) => {
   return (
     <div
-      className="flex flex-col items-center gap-3"
-      style={{
-        backgroundImage: "url('holiday_30_4.png')",
-      }}
+      className={stripStyle}
+      style={{ backgroundColor: frameColor, position: "relative" }}
     >
-      <div className="">
-        <img src="" alt="" />
+      {images.map((image) => (
+        <img src={image} key={image} className={imageStyle} />
+      ))}
+      <div className="w-full h-full absolute top-0 left-0">
+        <img src="/sticker.png" className="object-contain" />
       </div>
     </div>
   );
